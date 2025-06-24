@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "701099159601",
+    "project_id": "applicationsuivi",
+    "storage_bucket": "applicationsuivi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701099159601:android:fe0a87ac9fd2231ae06510",
+        "android_client_info": {
+          "package_name": "com.mariemichelle.applicationsuivis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbBoQ1SkJaiKQ2Yv5Eu1siV5-o7aU4ltw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
