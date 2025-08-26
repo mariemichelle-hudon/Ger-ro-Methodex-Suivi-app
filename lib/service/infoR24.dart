@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 import '../page/splashpage.dart';
 
 class Infor24 extends StatefulWidget {
-  Infor24({super.key, required this.ds, required this.dsutilisateur,});
+  Infor24({super.key, required this.ds, required this.dsutilisateur, required this.dsempl,});
 
   final DocumentSnapshot ds;
   final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
+
 
   @override
   State<Infor24> createState() => _Infor24State();
@@ -420,7 +422,7 @@ class _Infor24State extends State<Infor24> {
                                               await DsMethode(ds: widget.ds).deleter24(docid:dsdoc["id"]);
 
                                               Navigator.of(context).push(MaterialPageRoute(
-                                                  builder: ((context)=> Selectedprojet(ds: widget.ds, dsutilisateur: widget.dsutilisateur,)
+                                                  builder: ((context)=> Selectedprojet(ds: widget.ds, dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
                                                   )));
                                             },
                                             child: const Icon(
@@ -436,7 +438,7 @@ class _Infor24State extends State<Infor24> {
                                         child: GestureDetector(
                                             onTap: () {
                                               Navigator.of(context).push(MaterialPageRoute(
-                                                  builder: ((context)=> Modificationr24(ds: widget.ds,dsdoc: dsdoc, dsutilisateur: widget.dsutilisateur,)
+                                                  builder: ((context)=> Modificationr24(ds: widget.ds,dsdoc: dsdoc, dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
                                                   )));
                                               },
                                             child: const Icon(

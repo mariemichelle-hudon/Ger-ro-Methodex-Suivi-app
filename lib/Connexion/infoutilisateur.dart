@@ -20,7 +20,7 @@ class _InfoutilisateurState extends State<Infoutilisateur> {
   Widget build(BuildContext context) {
 
     Widget ifstate;
-    if (widget.dsutilisateur["fonction"]=="Administrateur" ||  widget.dsutilisateur["fonction"]=="Chargé de projet")
+    if (widget.dsutilisateur["fonction"]=="Chargé de projet" ||  widget.dsutilisateur["fonction"]=="Chargé de projet")
     { ifstate = GestureDetector(
         onTap: (){emplMethode().deleteutilisateur(id: widget.dsempl["id"]);
 
@@ -28,7 +28,7 @@ class _InfoutilisateurState extends State<Infoutilisateur> {
             const SnackBar(content: Text("L'utilisateur a été suprimé")));
 
         Navigator.of(context).push(MaterialPageRoute(
-            builder: ((context)=> Listeutilisateur(dsutilisateur: widget.dsutilisateur,)
+            builder: ((context)=> Listeutilisateur(dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
             )));},
         child: Icon(Icons.delete,
           color: Colors.orange,

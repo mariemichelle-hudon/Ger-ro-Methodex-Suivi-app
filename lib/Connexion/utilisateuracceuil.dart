@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 import '../page/splashpage.dart';
 
 class UtilisateurAcceuil extends StatefulWidget {
-  UtilisateurAcceuil({super.key});
-
+  UtilisateurAcceuil({super.key, required this.dsutilisateur, required this.dsempl});
+  final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
 
 
   @override
@@ -63,7 +64,7 @@ class _UtilisateurAcceuilState extends State<UtilisateurAcceuil> {
                               SizedBox(height: 10),
                               GestureDetector(onTap: () {
                                 Navigator.push(
-                                    context, PageRouteBuilder(pageBuilder: (_, __, ___) =>  data(dsutilisateur: dsutilisateur,)));
+                                    context, PageRouteBuilder(pageBuilder: (_, __, ___) =>  data(dsutilisateur: dsutilisateur, dsempl: widget.dsempl,)));
                               }, child: Icon(Icons.arrow_forward_rounded, color: Colors.white,size: 50,),
                               )
                             ])]),

@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 
 
 class Documentconstruction extends StatefulWidget {
-  const Documentconstruction({super.key, required this.ds, required this.dsutilisateur});
+  const Documentconstruction({super.key, required this.ds, required this.dsutilisateur, required this.dsempl});
 
   final DocumentSnapshot ds;
   final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
   
 
   @override
@@ -71,7 +72,7 @@ class _DocumentconstructionState extends State<Documentconstruction> {
             );}
 
             Navigator.of(context).push(MaterialPageRoute(
-                builder: ((context)=> Infodocconstruction(ds: widget.ds, dsutilisateur: widget.dsutilisateur,)
+                builder: ((context)=> Infodocconstruction(ds: widget.ds, dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
                 )));
           },
 

@@ -7,10 +7,11 @@ import '../page/splashpage.dart';
 import 'database.dart';
 
 class Infodocconstruction extends StatefulWidget {
-  Infodocconstruction({super.key, required this.ds, required this.dsutilisateur});
+  Infodocconstruction({super.key, required this.ds, required this.dsutilisateur, required this.dsempl});
 
   final DocumentSnapshot ds;
   final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
 
   @override
   State<Infodocconstruction> createState() => _InfodocconstructionState();
@@ -200,7 +201,7 @@ class _InfodocconstructionState extends State<Infodocconstruction> {
                                           await DsMethode(ds: widget.ds).deletedoccons(docid:dscons["id"]);
 
                                           Navigator.of(context).push(MaterialPageRoute(
-                                              builder: ((context)=> Selectedprojet(ds: widget.ds, dsutilisateur: widget.dsutilisateur,)
+                                              builder: ((context)=> Selectedprojet(ds: widget.ds, dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
                                               )));
                                         },
                                         child: const Icon(
@@ -215,7 +216,7 @@ class _InfodocconstructionState extends State<Infodocconstruction> {
                                     child: GestureDetector(
                                         onTap: () {
                                           Navigator.of(context).push(MaterialPageRoute(
-                                              builder: ((context)=> Modificationdocconstrution(ds: widget.ds, dscons: dscons, dsutilisateur: widget.dsutilisateur,)
+                                              builder: ((context)=> Modificationdocconstrution(ds: widget.ds, dscons: dscons, dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
                                               )));
                                         },
                                         child: const Icon(

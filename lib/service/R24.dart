@@ -11,11 +11,11 @@ import 'package:flutter/material.dart';
 import 'infoR24.dart';
 
 class R24 extends StatelessWidget {
-  R24({super.key, required this.ds, required this.dsutilisateur});
+  R24({super.key, required this.ds, required this.dsutilisateur, required this.dsempl});
 
   final DocumentSnapshot ds;
   final DocumentSnapshot dsutilisateur;
-  
+  final DocumentSnapshot dsempl;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class R24 extends StatelessWidget {
                           onTap: () {
                             Navigator.push(context, MaterialPageRoute(
                                 builder: (context) =>
-                                    Infor24(ds:ds, dsutilisateur: dsutilisateur,)));
+                                    Infor24(ds:ds, dsutilisateur: dsutilisateur, dsempl: dsempl,)));
                           },
                           child: const Icon(
                             Icons.arrow_forward_rounded, color: Colors.orange,)
@@ -74,7 +74,7 @@ class R24 extends StatelessWidget {
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(
                                   builder: (context) =>
-                                      NouveauR24(ds:ds, dsutilisateur: dsutilisateur,)));
+                                      NouveauR24(ds:ds, dsutilisateur: dsutilisateur, dsempl: dsempl,)));
                             },
                             child: const Icon(
                               Icons.add, color: Colors.orange,)
@@ -118,7 +118,7 @@ class R24 extends StatelessWidget {
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(
                                   builder: (context) =>
-                                      Nouveausuiviass(ds:ds, dsutilisateur: dsutilisateur,)));
+                                      Nouveausuiviass(ds:ds, dsutilisateur: dsutilisateur, dsempl: dsempl,)));
                             },
                             child: const Icon(
                               Icons.add, color: Colors.orange,)
@@ -151,7 +151,7 @@ class R24 extends StatelessWidget {
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(
                                   builder: (context) =>
-                                      Infodocconstruction(ds:ds, dsutilisateur: dsutilisateur,)));
+                                      Infodocconstruction(ds:ds, dsutilisateur: dsutilisateur, dsempl: dsempl,)));
                             },
                             child: const Icon(
                               Icons.arrow_forward_rounded, color: Colors.orange,)
@@ -163,7 +163,7 @@ class R24 extends StatelessWidget {
                               onTap: () {
                                 Navigator.push(context, MaterialPageRoute(
                                     builder: (context) =>
-                                        Documentconstruction(ds:ds, dsutilisateur: dsutilisateur,)));
+                                        Documentconstruction(ds:ds, dsutilisateur: dsutilisateur, dsempl: dsempl,)));
                               },
                               child: const Icon(
                                 Icons.add, color: Colors.orange,)

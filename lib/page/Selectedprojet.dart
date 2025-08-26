@@ -9,11 +9,12 @@ import 'package:flutter/material.dart';
 import '../service/informationassurance.dart';
 
 class Selectedprojet extends StatelessWidget {
-    Selectedprojet ({super.key, required this.ds, required this.dsutilisateur});
+    Selectedprojet ({super.key, required this.ds, required this.dsutilisateur, required this.dsempl});
 
 
     final DocumentSnapshot ds;
     final DocumentSnapshot dsutilisateur;
+    final DocumentSnapshot dsempl;
 
   @override
 
@@ -24,7 +25,7 @@ class Selectedprojet extends StatelessWidget {
           shape:const CircleBorder(),
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: ((context)=> Modificationprojet(ds: ds, dsutilisateur: dsutilisateur,)
+                builder: ((context)=> Modificationprojet(ds: ds, dsutilisateur: dsutilisateur, dsempl: dsempl,)
                 )));
           },
           child:
@@ -55,8 +56,8 @@ class Selectedprojet extends StatelessWidget {
               Informationprojet(ds: ds),
               Informationassurance(ds:ds),
               Autreinfo(ds: ds,),
-              R24(ds: ds, dsutilisateur: dsutilisateur,),
-              Baspageinfoprojet(ds: ds, dsutilisateur: dsutilisateur,)
+              R24(ds: ds, dsutilisateur: dsutilisateur, dsempl: dsempl,),
+              Baspageinfoprojet(ds: ds, dsutilisateur: dsutilisateur, dsempl: dsempl,)
             ],
           ),
         ],

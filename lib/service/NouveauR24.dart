@@ -6,10 +6,11 @@ import 'package:flutter/material.dart';
 
 
 class NouveauR24 extends StatefulWidget {
-  NouveauR24({super.key, required this.ds, required this.dsutilisateur, });
+  NouveauR24({super.key, required this.ds, required this.dsutilisateur, required this.dsempl, });
 
   final DocumentSnapshot ds;
   final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
 
 
   @override
@@ -130,7 +131,7 @@ class _NouveauR24State extends State<NouveauR24> {
 
             Navigator.of(context).push(MaterialPageRoute(
                 builder: ((context) =>
-                    Infor24(ds: widget.ds, dsutilisateur: widget.dsutilisateur)
+                    Infor24(ds: widget.ds, dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
                 )));
           },
           child:

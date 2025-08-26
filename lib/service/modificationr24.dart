@@ -3,11 +3,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Modificationr24 extends StatefulWidget {
-  Modificationr24({super.key, required this.ds, required this.dsdoc, required this.dsutilisateur});
+  Modificationr24({super.key, required this.ds, required this.dsdoc, required this.dsutilisateur, required this.dsempl});
 
   final DocumentSnapshot ds;
   final DocumentSnapshot dsdoc;
   final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
   
 
   @override
@@ -129,7 +130,7 @@ class _Modificationr24State extends State<Modificationr24> {
     );
 
     Navigator.of(context).push(MaterialPageRoute(
-    builder: ((context)=> Infor24(ds: widget.ds, dsutilisateur: widget.dsutilisateur,)
+    builder: ((context)=> Infor24(ds: widget.ds, dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
     )));
 
     },

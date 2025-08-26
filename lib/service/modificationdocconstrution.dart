@@ -3,11 +3,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Modificationdocconstrution extends StatefulWidget {
-  const Modificationdocconstrution({super.key, required this.ds, required this.dscons, required this.dsutilisateur});
+  const Modificationdocconstrution({super.key, required this.ds, required this.dscons, required this.dsutilisateur, required this.dsempl});
 
   final DocumentSnapshot ds;
   final DocumentSnapshot dscons;
   final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
   
 
   @override
@@ -67,7 +68,7 @@ class _ModificationdocconstrutionState extends State<Modificationdocconstrution>
             );
 
             Navigator.of(context).push(MaterialPageRoute(
-                builder: ((context)=> Infodocconstruction(ds: widget.ds, dsutilisateur: widget.dsutilisateur,)
+                builder: ((context)=> Infodocconstruction(ds: widget.ds, dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
                 )));
 
             },

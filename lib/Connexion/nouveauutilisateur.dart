@@ -7,9 +7,10 @@ import 'package:flutter/material.dart';
 import 'firebaseautservice.dart';
 
 class Nouveauutilisateur extends StatefulWidget {
-  const Nouveauutilisateur({super.key, required this.dsutilisateur});
+  const Nouveauutilisateur({super.key, required this.dsutilisateur, required this.dsempl});
 
   final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
 
 
   @override
@@ -73,7 +74,7 @@ class _NouveauutilisateurState extends State<Nouveauutilisateur> {
             );
           }
           Navigator.of(context).push(MaterialPageRoute(
-              builder: ((context)=> Listeutilisateur(dsutilisateur: widget.dsutilisateur)
+              builder: ((context)=> Listeutilisateur(dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
               )));
         },
         child:

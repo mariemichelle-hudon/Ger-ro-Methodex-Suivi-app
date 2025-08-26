@@ -4,15 +4,18 @@ import 'package:applicationsuivis/calendar/calendrier.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 import '../page/Selectedprojet.dart';
+import '../page/drawer.dart';
 import '../page/nouveaudossier.dart';
 import '../page/splashpage.dart';
 import '../service/database.dart';
 
 class data extends StatefulWidget {
-  const data({super.key, required this.dsutilisateur,});
-  
+  const data({super.key, required this.dsutilisateur, required this.dsempl,});
+
   final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
 
 
   @override
@@ -75,7 +78,7 @@ class _dataState extends State<data> {
                                     onTap: () async {
                                       Navigator.push(context,
                                           MaterialPageRoute(builder: (context) =>
-                                              Selectedprojet(ds:ds, dsutilisateur: widget.dsutilisateur,)));
+                                              Selectedprojet(ds:ds, dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)));
                                     },
                                     child: const Icon(
                                       Icons.edit, color: Colors.orangeAccent,)
@@ -113,7 +116,7 @@ class _dataState extends State<data> {
                                 onTap: () async {
                                   Navigator.push(context,
                                       MaterialPageRoute(builder: (context) =>
-                                          Selectedprojet(ds:ds, dsutilisateur: widget.dsutilisateur,)));
+                                          Selectedprojet(ds:ds, dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)));
                                 },
                                 child: const Icon(
                                   Icons.edit, color: Colors.orangeAccent,)
@@ -147,7 +150,7 @@ class _dataState extends State<data> {
         shape:const CircleBorder(),
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
-              builder: ((context) => const nouveaudossier())));
+              builder: ((context) => nouveaudossier(dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,))));
         },
         child:
         Container(
@@ -167,7 +170,7 @@ class _dataState extends State<data> {
                 size: 40),
               GestureDetector(
                 onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Utilisateur(dsutilisateur: widget.dsutilisateur,)));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Utilisateur(dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)));
 
                 },
                 child: Icon(Icons.person,
@@ -187,10 +190,11 @@ class _dataState extends State<data> {
           },)
       ),
 
+
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(20),
             child: TextField(
              onChanged: (value){
                setState(() {
@@ -205,37 +209,7 @@ class _dataState extends State<data> {
           Expanded(child: Allficheclient()),
         ],
       ),
-      drawer: Drawer(
-          child:ListView(
-            children: [
-              ListTile(
-                title: Text("Liste de projet"),
-                onTap: () {
-                  //Navigator.of(context).push(MaterialPageRoute(builder: ((context)=> data())));
-                },
-              ),
-              ListTile(
-                title: Text("Liste d'utilisateur"),
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: ((context)=> Listeutilisateur(dsutilisateur: widget.dsutilisateur)
-                      )));
-                },
-              ),
-
-              ListTile(
-                leading: Icon(Icons.calendar_month, color: Colors.black,),
-                title: Text("Calendrier"),
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: ((context)=> Calendrier()
-                      )));
-                },
-              )
-
-            ],
-          )
-      ),
+      drawer: CustomDrawer(dsutilisateur:widget.dsutilisateur, dsempl: widget.dsempl,),
     );
   }
 }

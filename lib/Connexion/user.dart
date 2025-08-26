@@ -6,9 +6,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Utilisateur extends StatefulWidget {
-  const Utilisateur({super.key, required this.dsutilisateur});
+  const Utilisateur({super.key, required this.dsutilisateur, required this.dsempl});
 
   final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
 
   @override
   State<Utilisateur> createState() => _UtilisateurState();
@@ -33,7 +34,7 @@ class _UtilisateurState extends State<Utilisateur> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: ((context) => HomePage())));
+                .push(MaterialPageRoute(builder: ((context) => HomePage(dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,))));
           },
           child: const Icon(
             Icons.logout,

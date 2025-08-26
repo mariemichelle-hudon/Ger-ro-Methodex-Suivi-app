@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import '../Connexion/firebaseautservice.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key,});
-
+  const HomePage({super.key, required this.dsutilisateur, required this.dsempl,});
+  final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
 
 
   @override
@@ -34,7 +35,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.orange,
-        body: Center(
+        body: ListView(children: [
+          Center(
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -108,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                               )
 
                         )])),
-        );
+        ]));
 
   }
 
@@ -136,7 +138,7 @@ class _HomePageState extends State<HomePage> {
 
     if (user != null) {
       Navigator.push(
-          context, PageRouteBuilder(pageBuilder: (_, __, ___) =>  UtilisateurAcceuil()));
+          context, PageRouteBuilder(pageBuilder: (_, __, ___) =>  UtilisateurAcceuil(dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)));
       print(user.uid);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(

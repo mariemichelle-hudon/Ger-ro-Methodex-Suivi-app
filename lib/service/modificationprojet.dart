@@ -3,11 +3,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Modificationprojet extends StatefulWidget {
-   Modificationprojet({super.key, required this.ds, required this.dsutilisateur});
+   Modificationprojet({super.key, required this.ds, required this.dsutilisateur, required this.dsempl});
 
 
    final DocumentSnapshot ds;
    final DocumentSnapshot dsutilisateur;
+   final DocumentSnapshot dsempl;
 
 
   @override
@@ -69,7 +70,7 @@ class _ModificationprojetState extends State<Modificationprojet> {
           print(widget.ds.id);
 
           Navigator.of(context).push(MaterialPageRoute(
-              builder: ((context)=> data(dsutilisateur: widget.dsutilisateur ,)
+              builder: ((context)=> data(dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl ,)
               )));
 
           },

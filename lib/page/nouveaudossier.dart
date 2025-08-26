@@ -1,11 +1,14 @@
+import 'package:applicationsuivis/Widget/data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../service/database.dart';
 
 class nouveaudossier extends StatefulWidget {
-  const nouveaudossier({super.key});
+  const nouveaudossier({super.key, required this.dsutilisateur, required this.dsempl});
 
+  final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
 
   @override
   State<nouveaudossier> createState() => _nouveaudossierState();
@@ -246,7 +249,7 @@ class _nouveaudossierState extends State<nouveaudossier> {
                           const SnackBar(content: Text("Le projet a été créé"))
                       );
                     }
-                    //Navigator.of(context).push(MaterialPageRoute(builder: ((context)=> const data())))
+                    Navigator.of(context).push(MaterialPageRoute(builder: ((context)=> data(dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,))))
                     ;
                   },
                   child: const Text("Enregistrer",

@@ -3,13 +3,15 @@ import 'package:applicationsuivis/Connexion/nouveauutilisateur.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../Widget/data.dart';
+import '../page/drawer.dart';
 import '../page/splashpage.dart';
 import '../service/database.dart';
 
 class Listeutilisateur extends StatefulWidget {
-   Listeutilisateur({super.key, required this.dsutilisateur});
+   Listeutilisateur({super.key, required this.dsutilisateur, required this.dsempl});
 
    final DocumentSnapshot dsutilisateur;
+   final DocumentSnapshot dsempl;
    
 
   @override
@@ -35,13 +37,13 @@ class _ListeutilisateurState extends State<Listeutilisateur> {
   Widget build(BuildContext context) {
 
     Widget ifstate;
-    if (widget.dsutilisateur["fonction"]=="Administrateur" ||  widget.dsutilisateur["fonction"]=="Chargé de projet")
+    if (widget.dsutilisateur["fonction"]=="Chargé de projet" ||  widget.dsutilisateur["fonction"]=="Chargé de projet")
     { ifstate = FloatingActionButton(
       shape: const CircleBorder(),
       backgroundColor: Colors.orange,
       onPressed: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: ((context)=> Nouveauutilisateur(dsutilisateur: widget.dsutilisateur)
+            builder: ((context)=> Nouveauutilisateur(dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
             )));
       },
       child:
@@ -70,26 +72,7 @@ class _ListeutilisateurState extends State<Listeutilisateur> {
                 onPressed:Scaffold.of(context).openDrawer);
           },)
       ),
-      drawer: Drawer(
-          child:ListView(
-            children: [
-              ListTile(
-                title: const Text("Liste de projet"),
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: ((context)=> data(dsutilisateur: widget.dsutilisateur,))));
-                },
-              ),
-              ListTile(
-                title: const Text("Liste d'employé"),
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: ((context)=> Listeutilisateur(dsutilisateur: widget.dsutilisateur,)
-                      )));
-                },
-              )
-            ],
-          )
-      ),
+      drawer:CustomDrawer(dsutilisateur: widget.dsutilisateur,dsempl: widget.dsempl,),
 
       body: StreamBuilder(
         stream: Datastream,

@@ -4,10 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Nouveausuiviass extends StatefulWidget {
-  Nouveausuiviass({super.key, required this.ds, required this.dsutilisateur});
+  Nouveausuiviass({super.key, required this.ds, required this.dsutilisateur, required this.dsempl});
 
   final DocumentSnapshot ds;
   final DocumentSnapshot dsutilisateur;
+  final DocumentSnapshot dsempl;
 
 
   @override
@@ -57,7 +58,7 @@ class _NouveausuiviassState extends State<Nouveausuiviass> {
     const SnackBar(content: Text("Le suivi d'assèchement a été créé"))
     );}
           Navigator.of(context).push(MaterialPageRoute(
-              builder: ((context)=> Selectedprojet(ds: widget.ds, dsutilisateur: widget.dsutilisateur,)
+              builder: ((context)=> Selectedprojet(ds: widget.ds, dsutilisateur: widget.dsutilisateur, dsempl: widget.dsempl,)
               )));
           },
         child: const Icon(Icons.check,
